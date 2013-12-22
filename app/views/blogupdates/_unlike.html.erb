@@ -1,0 +1,4 @@
+<%= form_for(current_user.bloglikes.find_by_blogupdate_id(@blogupdate),
+             html: { method: :delete }) do |f| %>
+  <%= f.submit "UNLIKE", class: "btn btn-medium" %>
+<% end %>

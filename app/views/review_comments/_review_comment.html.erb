@@ -1,0 +1,14 @@
+<div class="comments">        
+  <p><%= review_comment.content %></p>
+  <span>
+  	Posted <%= time_ago_in_words(review_comment.created_at) %> ago by <%= review_comment.user.name %>
+  	
+  	<div class="pull-right">
+	  	<% if current_user.try(:admin?) %>
+	  	<% end %>
+  	</div>
+
+  </span>
+</div>
+
+<br />

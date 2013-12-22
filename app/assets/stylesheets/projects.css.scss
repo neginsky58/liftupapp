@@ -1,0 +1,67 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* micropost jQuery countdown */
+
+.countdown {
+  display: inline;
+  padding-left: 185px;
+  color: gray;
+}
+
+.followprojectbutton {
+	float:left;
+	margin-right:30px;
+}
+
+.followbutton {
+}
+
+.justifycontent {
+	text-align:justify;
+}
+
+h3.skipline {
+	display: block;
+}
+
+.commentend {
+	margin-left: 60px;
+	border-bottom: 1px solid #bfbfbf;
+}
+
+p.indentcommentsignin {
+	margin-left: 70px;
+}
+
+.projectbackground {
+/*  background-color: white;*/
+}
+
+.projectbackgroundresize {
+/*  margin:35px;
+  padding-top:30px;*/
+}
+
+/*Video Embed Responsive*/
+
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16/9 ratio */
+    padding-top: 30px; /* IE6 workaround*/
+    height: 0;
+    overflow: hidden;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+

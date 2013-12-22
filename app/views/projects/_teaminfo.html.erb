@@ -1,0 +1,14 @@
+<!-- Team -->
+<fieldset>
+  <legend>Team Members</legend>
+  <section>
+
+    <!-- Show Team -->
+
+    <% if @project.team_members.blank? %>     
+      <p>No team members have been added to this project.</p>        
+    <% else %>        
+      <%= render @team_members %>
+    <% end %>
+
+</fieldset>

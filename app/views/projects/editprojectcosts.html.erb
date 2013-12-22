@@ -1,0 +1,24 @@
+<div class = "container">
+	<br />
+	<%= link_to 'Home', root_url, class: "btn btn-header" %>
+
+	<h1>Editing project</h1>
+		<%= render 'formheader' %>
+
+		<div class="row">
+          <div class="span6">
+          	<%= link_to "Preview", team_project_path(@project), class: "btn btn-primary" %>
+            <%= link_to "Continue to Review", editcomments_project_path(@project), class: "btn btn-success" %>
+            <!-- Add Project Costs -->
+			<%= render 'projectcosts/form' %>
+          </div>
+
+          <div class="span6">
+            <!-- Show Added Project Costs -->
+			<%= render 'projectcosts/projectcostlisting' %>
+          </div>
+      </div>
+</div>
+
+
+      

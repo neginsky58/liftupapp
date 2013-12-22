@@ -1,0 +1,21 @@
+
+<%= form_for(@donate_plan, :url => save_donate_plans_path, :method => :post ) do |f| %>
+  <input type="hidden" name="donate_plans[id]" value="<%= @donate_plan.id %>">
+  <input type="hidden" name="donate_plans[project_id]" value="<%= @project_id %>">
+
+  <div class="control-group">
+  	<%= f.label :setup_amount, :class => 'control-label' %>
+  	<%= f.text_field :setup_amount, :class => 'controls' %>
+  </div>
+  <div class="control-group">
+  	<label class="control-label">Fee: </label>
+  	<label class="control-label fee-value"></label>
+  </div>  
+  <div class="control-group">
+  	<%= f.label :amount, :class => 'control-label' %>
+  	<%= f.text_field :amount, :class => 'controls'  %>
+  </div>
+  
+  <button type="submit">Make plan</button>
+  
+<% end %>

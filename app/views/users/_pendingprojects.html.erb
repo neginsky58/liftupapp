@@ -1,0 +1,34 @@
+<!-- shows projects that are drafts or in progress of pending approval from admin -->
+
+<h2>Pending Administrative Review</h2>
+<% if @approvalstage.blank? %>     
+      <p>No projects are currently under administrative review.</p>        
+<% else %>
+	<div id="projects">
+		<%= render @approvalstage %>
+	</div>
+	<center>
+		<%= will_paginate @approvalstage, :param_name => 'approvalstage_page' %>
+	</center>
+<% end %>
+
+<br /><br /><br /><br />
+
+<% if @approvalstage.blank? %>           
+<% else %>
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<% end %>
+
+<h2>Drafting</h2>
+
+<% if @pendingprojects.blank? %>     
+      <p>You are not currently drafting any projects.</p>        
+<% else %>
+	<div id="projects">
+		<%= render @pendingprojects %>
+	</div>
+	<center>
+		<%= will_paginate @pendingprojects, :param_name => 'pendingprojects_page' %>
+	</center>
+<% end %>

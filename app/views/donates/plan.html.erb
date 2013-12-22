@@ -1,0 +1,30 @@
+<div class="container">
+	<h1>Donate Plan</h1>
+	<% unless @donate_plan.blank? %>
+		<form action="<%= charge_donates_path %>" method="post">
+			<input type="hidden" name="donate_plan_id" value="<%= @donate_plan.id %>">
+			<div class="control-groups">
+				<label class="control-label">Amount: $<%= @donate_plan.amount %></label>				
+			</div>
+			<div class="control-groups">
+				<label class="control-label">Payment Method: </label>
+				
+				
+				<select class="controls" name="creditcard_id">
+					<option value="">Credit Card</option>
+				<% @creditcards.each do |creditcard| %>
+					<option value="<%= creditcard.id %>"> xxxxxxxxxxxxx<%= creditcard.cvv %> - <%= creditcard.exp_month.to_s() + '/' + creditcard.exp_year.to_s() %> </option>
+				<% end %>	
+				</select>
+				<%= link_to 'Add Credit Card', 	new_creditcards_path %>
+					
+			</div>
+			<br><br><br>
+			<div class="control-groups">
+				<input type="submit" class="btn btn-primary" value="Donate">
+			</div>	
+		</form>
+	<% else %>
+		Plan doesn't exist on.
+	<% end %>
+</div>

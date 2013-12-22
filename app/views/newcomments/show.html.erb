@@ -1,0 +1,42 @@
+<div class="staticheaderspacing">
+  <div class="container">
+
+    <div class="offset2 linkhover">
+      <%= link_to 'Back To Project', comments_project_path(@newcomment.commentable) %>
+      <div class="staticheaderspacing"></div>
+    </div>
+
+    <div class="comments span8 offset2"> 
+      <div class="media">
+        <a class="pull-left">
+          <img class="media-object" data-src= <%= image_tag @newcomment.user.image_url(:thumbindex).to_s %>
+        </a>   
+
+        <ul class = "bullets-left">
+          <li class ="linkhover"><strong><%= link_to @newcomment.user.name, show_user_path(@newcomment.user.permalink) %></strong></li>
+          <li>Posted <%= time_ago_in_words(@newcomment.created_at) %> ago</li>
+        </ul>
+
+        <div class="indentcommentcontent media-body">
+          <%= @newcomment.content %>
+          <span>
+            <% if current_user.try(:admin?) || current_user == @newcomment.user %>
+              <div class="pull-right">
+                <%= link_to "Destroy", @newcomment, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+            <% end %>
+          </span>
+        </div>     
+      </div>
+    </div>
+
+    <br /><br /><br /><br /><br /><br />
+    <div class="offset2">
+      <%= render 'ttwocomments/form' %>
+    </div>
+    
+    <%= render @ttwocomments %>
+    <center><%= will_paginate @ttwocomments, :param_name => 'commentstwo_page' %></center>
+  </div>
+</div>
+

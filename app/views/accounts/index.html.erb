@@ -1,0 +1,16 @@
+<div class="container">
+	
+	
+	<br><br>
+	<% if @account.blank? %>		
+		<h1>Please create your account using Stripe.</h1>
+		
+	<% else %>
+		<h2>You have already connected with Stripe.</h2>
+		<!-- <%= link_to image_tag('/images/blue.png'), 'https://connect.stripe.com/oauth/authorize?response_type=code&stripe_landing=login&client_id='+STRIPE_CLIENT_ID+'&user_id='+current_user.id.to_s %> -->
+		
+	<% end %>
+	<!-- <%= link_to image_tag('/images/blue.png'), 'https://connect.stripe.com/oauth/authorize?response_type=code&stripe_landing=login&client_id='+STRIPE_CLIENT_ID+'&user_id='+current_user.id.to_s %> -->
+	<%= link_to image_tag('/images/blue.png'), 'https://connect.stripe.com/oauth/authorize?response_type=code&scope=read_write&stripe_landing=login&client_id='+STRIPE_CLIENT_ID+'&user_id='+current_user.id.to_s %>
+
+</div> 

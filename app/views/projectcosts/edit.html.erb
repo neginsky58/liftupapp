@@ -1,0 +1,30 @@
+<div class = "container">
+	<h1>Project Cost Edit</h1>
+	<div class="comments"> 
+	<br /><br />
+  <div class = "offset3">
+    <%= form_for(@projectcost) do |f| %>
+      
+      <div class="field">
+      <br />
+      Category: 
+      <br />
+      <%= f.text_area :category, :class => "span5", :rows => "2" %>
+      <br />
+      Cost (Estimated): 
+      <br />
+      <%= f.text_area :costestimate, :class => "span5", :rows => "1" %>
+      <br />
+      Cost (Actual):
+      <br />
+      <%= f.text_area :costactual, :class => "span5", :rows => "1" %>
+      </div>
+
+      <br />
+      <div class="actions">
+        <%= f.submit "Update Project Cost", :class => "btn btn-header btn-primary" %>
+      </div>
+    <% end %>
+	
+  </div>
+</div>

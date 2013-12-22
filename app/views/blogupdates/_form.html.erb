@@ -1,0 +1,14 @@
+<span class="comment">
+    <%= form_for([@project, @project.blogupdates.build]) do |f| %>
+      <div class="field">
+      	<%= f.text_area :content, label: "Blog Updates", :class => "redactor", 
+      					:cols => 100, :rows => 100 %>
+      </div>
+
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+
+      <div class="actions">
+        <%= f.submit "Add Blog Update", :class => "btn btn-header" %>
+      </div>
+    <% end %>
+</span>

@@ -1,0 +1,27 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th class="projectcost">Cost (Estimate)</th>
+      <th class="projectcost">Cost (Actual)</th>
+      <th class="projectcost">% Split</th>
+      <th class="projectcost">+/-</th>
+      <th class="projectcost"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @projectcosts %>  
+    <tr>
+	    <td>Total</td>
+	    <td class="projectcost"><%= number_to_currency(@projectcosts.sum(:costestimate), :unit => "$", :precision => 0) %></td>
+	    <td class="projectcost"><%= number_to_currency(@projectcosts.sum(:costactual), :unit => "$", :precision => 0) %></td>
+      <td class="projectcost">100%</td>
+	    <td><%= number_to_currency(@projectcosts.sum(:costestimate)-@projectcosts.sum(:costactual), :unit => "$", :precision => 0) %></td>
+	    <td></td>
+      <td></td>
+	  </tr>
+
+  </tbody>
+</table>
+<%= will_paginate @projectcosts, :param_name => 'projectcosts_page' %>
+

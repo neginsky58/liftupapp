@@ -1,0 +1,15 @@
+<fieldset>
+  <legend>Blog Updates</legend>
+  <section>
+
+ <% if current_user == @project.user %>
+    <%= render 'blogupdates/form' %>
+ <% end %>
+ <% if @project.blogupdates.blank? %>     
+    <p>No comments made yet for this project.</p>        
+ <% else %>        
+   <%= render @blogupdates %>
+   <%= will_paginate @blogupdates, :param_name => 'blogupdates_page' %>     
+ <% end %>
+
+</fieldset>

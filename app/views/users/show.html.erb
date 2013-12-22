@@ -1,0 +1,9 @@
+<div class = "container">
+
+	<%= render 'header' %>
+	<h5>About</h5>
+	<p><%= @user.aboutuser %></p>
+	<%= image_tag @user.image_url(:regular).to_s %>
+	
+</div>
+

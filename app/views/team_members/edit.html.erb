@@ -1,0 +1,36 @@
+<div class = "container">
+	<h1>Team Member Edit</h1>
+	<div class="comments"> 
+	<br /><br />
+  <div class = "offset3">
+    <%= form_for(@team_member) do |f| %>
+      
+      <div class="field">
+        <br />
+        Name:
+        <br />
+        <%= f.text_area :membername, :class => "span5", :rows => "1" %>
+        <br />
+        Bio:
+        <br />
+        <%= f.text_area :content, :class => "span5", :rows => "5" %>
+      </div>
+      <br />
+      <br />
+      <%= image_tag @team_member.teamuserimage_url(:thumb).to_s %>
+      <br />
+      <p>
+        <%= f.file_field :teamuserimage %>
+      </p>
+      <p>
+        <%= f.label :remote_teamuserimage_url, "Or Image URL" %>
+        <%= f.text_field :remote_teamuserimage_url %>
+      </p>
+      <br />
+      <div class="actions">
+        <%= f.submit "Update Team Member", :class => "btn btn-header btn-primary" %>
+      </div>
+    <% end %>
+	
+  </div>
+</div>

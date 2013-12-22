@@ -1,0 +1,4 @@
+<%= form_for(current_user.bloglikes.build(blogupdate_id: @blogupdate.id)) do |f| %>
+  <div><%= f.hidden_field :blogupdate_id %></div>
+  <%= f.submit "LIKE", class: "btn btn-medium btn-primary" %>
+<% end %>

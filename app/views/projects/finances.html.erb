@@ -1,0 +1,21 @@
+<div class = "container">
+  <div class ="staticheaderspacing"></div>
+  <% if current_user == @project.user || @project.projectreviewed == true || current_user.try(:admin?) %>
+
+      <!-- Header for the project show page -->
+      <%= render 'header' %>
+
+      <!-- Form layout for the project -->
+      <div class="row">
+          <div class="span4">
+            <%= render 'mainsidebar' %>
+          </div>
+
+          <div class="span8">
+            <%= render 'projectfinances' %>
+          </div>
+      </div>
+
+  <% end %>     
+
+</div>

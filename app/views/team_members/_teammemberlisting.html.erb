@@ -1,0 +1,8 @@
+<div class="hero-unit">
+<h5>Team Members:</h5>
+<% if @project.team_members.blank? %>     
+    <p>No team members have been added to this project.</p>        
+<% else %>        
+	<%= render @team_members %>
+<% end %>
+</div>

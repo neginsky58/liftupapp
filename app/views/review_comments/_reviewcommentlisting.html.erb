@@ -1,0 +1,11 @@
+<br />
+<div class="hero-unit">
+<h5>Review Comment Log:</h5>
+
+<% if @project.review_comments.blank? %>     
+    <p>No review comments have been made for this project.</p>        
+<% else %>        
+	<%= render @review_comments %>
+    <%= will_paginate @review_comments %>
+<% end %>
+</div>

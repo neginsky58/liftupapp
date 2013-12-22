@@ -1,0 +1,15 @@
+<div class = "container">
+  <%= render 'header' %>
+  <% provide(:title, @title) %>
+  <div class="row">
+    <div class="span12"> 
+      <h4>&nbsp;&nbsp;<%= @title %></h4>
+      <% if @users.any? %>
+        <ul class="users">
+          <%= render @users %>
+        </ul>
+        <%= will_paginate %>
+      <% end %>
+    </div>
+  </div>
+</div>

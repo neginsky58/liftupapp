@@ -1,0 +1,29 @@
+<div class = "container">
+	<br />
+	<%= link_to 'Home', root_url, class: "btn btn-header" %>
+
+	<h1>Editing project</h1>
+		<%= render 'formheader' %>
+
+		<% if @project.submitreview != true %>
+
+			<div class="form-actions">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<%= link_to "Submit Proposal", submitreview_project_path(@project), method: :put, class: "btn btn-large btn-success", data: { confirm: 'Did you save yet?' } %>
+			</div>
+
+		<% end %>
+
+		<!-- Add Comments -->
+		<%= render 'review_comments/form' %>
+		<!-- Show Review Comments -->
+		<%= render 'review_comments/reviewcommentlisting' %>
+
+	
+		
+</div>

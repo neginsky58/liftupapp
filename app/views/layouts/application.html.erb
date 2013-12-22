@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LIFTUP 1.0</title>
+  <script type="text/javascript" src="https://js.stripe.com/v1/"></script>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= tag :meta, :name => 'stripe-key', :content => STRIPE_PUBLIC_KEY %>  
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+    
+</head>
+<body>
+
+	<%= render 'layouts/header' %>
+	
+	<div id ="wrap" >
+		<div id = "main" class = "staticheaderspacing">
+				<%= yield %>
+				
+				<div class="container">
+					<% flash.each do |name, msg| %>
+		                <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+		            <% end %>
+	        	</div>			
+		</div>
+	</div>
+
+	<%= render 'layouts/footer' %>
+
+</body>
+</html>
+

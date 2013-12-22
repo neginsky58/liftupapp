@@ -1,0 +1,37 @@
+<div class = "container">
+  <div class ="staticheaderspacing"></div>
+  <% if current_user == @project.user || @project.projectreviewed == true || current_user.try(:admin?) %>
+
+      <!-- Header for the project show page -->
+      <%= render 'header' %>
+
+      <!-- Form layout for the project -->
+      <div class="row">
+          <div class="span4">
+            <%= render 'mainsidebar' %>
+          </div>
+
+          <div class="span8">
+            <!-- Insert listing of Users here! -->
+            <fieldset>
+              <legend>Followers/Prayers</legend>
+                <section>
+                  
+                  <% if @users.any? %>
+                      <%= render @users %>
+                      <%= will_paginate @users, :param_name => 'followers_page' %>
+                  <% else %>
+                    Be the first to pray for this project! <br /><br />
+                    <% if current_user != @project.user || current_user.try(:admin?) %>
+                      <%= render 'follow_form' if signed_in? %>
+                    <% end %>
+                  <% end %>
+
+                </section>
+          </fieldset>
+          </div>
+      </div>
+
+  <% end %>     
+
+</div>

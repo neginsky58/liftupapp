@@ -1,0 +1,20 @@
+<div class = "container staticheaderspacing">
+	<h3>Explore Projects</h3>
+	<div class = "row">
+		<div class = "span2">
+			<%= render 'pages/exploresidebar' %>
+		</div>
+
+		<div class = "span10">
+			<%= render @projects %>
+
+			<br /><br /><br /><br /><br /><br /><br />
+			<br /><br /><br /><br /><br /><br /><br />
+			<br /><br /><br /><br /><br /><br /><br />
+			
+			<center>
+				<%= will_paginate @projects, :param_name => 'mainprojects_page' %> 
+			</center>
+		</div>
+	</div>
+</div>

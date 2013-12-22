@@ -1,0 +1,21 @@
+<div class = "container">
+	<h1>Blog Entry Edit</h1>
+	<div class="comments"> 
+	<br /><br />
+	<em>Posted <%= time_ago_in_words(@blogupdate.created_at) %> ago</em>
+	<br /><br />
+	
+	<span class="comment">
+    <%= form_for(@blogupdate) do |f| %>
+      <div class="field">
+      	<%= f.text_area :content, label: "Blog Updates", :class => "redactor" %>
+      </div>
+      <br /><br />
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <div class="actions">
+        <%= f.submit "Update Blog Entry", :class => "btn btn-header btn-primary" %>
+      </div>
+    <% end %>
+	</span>
+
+</div>

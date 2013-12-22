@@ -1,0 +1,36 @@
+<!-- Project Costs -->
+<fieldset>
+  <legend>Project Cost Breakdown</legend>
+
+    <!-- Show Project Costs -->
+    <table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th>Description</th>
+	      <th class="projectcost">Cost (Estimate)</th>
+	      <th class="projectcost">Cost (Actual)</th>
+	      <th class="projectcost">% Split</th>
+	      <th class="projectcost">+/-</th>
+	      <th class="projectcost"></th>
+	      <th class="projectcost"></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <%= render @projectcosts %>  
+	      <tr class="projectcosttotal">
+		    <td>Total</td>
+		    <td class="projectcost"><%= number_to_currency(@projectcosts.sum(:costestimate), :unit => "$", :precision => 0) %></td>
+		    <td class="projectcost"><%= number_to_currency(@projectcosts.sum(:costactual), :unit => "$", :precision => 0) %></td>
+		    <td class="projectcost">100%</td>
+		    <td class="projectcost"><%= number_to_currency(@projectcosts.sum(:costestimate)-@projectcosts.sum(:costactual), :unit => "$", :precision => 0) %></td>
+
+		  </tr>
+
+	  </tbody>
+	</table>
+	<%= will_paginate @projectcosts, :param_name => 'projectfinances_page' %>
+
+</fieldset>
+
+
+

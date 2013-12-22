@@ -1,0 +1,14 @@
+<p class="comment_header">Add Review Comment:</p>
+<span class="comment">
+	<%= form_for([@project, @project.review_comments.build]) do |f| %>
+		<div class="field">
+		<%= f.text_area :content, :class => "span12", :rows => "3" %>
+		</div>
+
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+
+		<div class="actions">
+		<%= f.submit "Add Review Comment", :class => "btn btn-header" %>
+		</div>
+	<% end %>
+</span>

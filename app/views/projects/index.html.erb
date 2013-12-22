@@ -1,0 +1,37 @@
+<%= render 'pages/home' %>
+
+<div class = "staticheaderspacing"></div>
+
+<div class = "container">
+
+  <% if current_user.try(:admin?) %>
+
+     <center>
+        <a href="admin" class="btn btn-primary">GO TO PROJECTS VIEW</a>
+        <br /><br />
+        <a href="users" class="btn btn-primary">GO TO USERS VIEW</a>
+        <br /><br />
+        <a href="comments" class="btn btn-primary">GO TO COMMENTS VIEW</a>
+        &nbsp;&nbsp;
+        <a href="commentstwo" class="btn btn-primary">GO TO COMMENTS REPLY VIEW</a>
+        <br /><br />
+        <a href="categoryadmin" class="btn btn-primary">GO TO CATEGORIES VIEW</a>
+        <br /><br />
+        <a href="projectlocationadmin" class="btn btn-primary">GO TO PROJECT LOCATION VIEW</a>
+     </center>
+     
+  <% else %>
+
+    <center>
+      <div id="projects">      
+        <%= render @projects %>
+      </div>
+    </center>
+    
+    <center>
+      <%= will_paginate @projects %>
+    </center>
+
+  <% end %>
+
+</div>

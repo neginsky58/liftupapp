@@ -1,0 +1,50 @@
+<% if current_user.try(:admin?) %>
+
+	<tr>
+		<td><%= project.projecttitle %></td>
+		<td><%= project.projectshortdesc %></td>
+		<td><%= project.created_at %></td>
+		<td><%= project.submitreview %></td>
+		<td><%= project.projectreviewed %></td>
+		<td><%= link_to 'Review', edit_project_path(project) %></td>
+		<td><%= link_to 'Preview', project %></td>
+		<td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+
+<% else %>
+
+		<div class="box">
+			<%= link_to (image_tag project.projectimage_url(:indexview).to_s), project %>
+			<p class = "description">
+				<%= project.projectshortdesc %>
+			</p>
+			<p>
+				<strong>
+				<div class = "categoryheadersidecolumn">
+					Posted by: <%= link_to project.user.name, show_user_path(project.user.permalink) %>
+				</div>
+				</strong>
+			</p>
+
+		<p>
+			<% if current_user != project.user %> 
+			<br>
+			<a href="/donate_plans/project/<%= project.id %>" class="btn">Donate Plan</a>
+			<% end %>
+		</p>
+
+				<p>
+					<% if current_user == project.user %>
+						<% if project.projectreviewed != true %>
+							<%= link_to 'Edit', edit_project_path(project) %>
+							<%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+						<% end %>	
+					<% end %>
+				</p>
+			
+		</div>
+
+
+<% end %>
+
+

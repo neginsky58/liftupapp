@@ -1,0 +1,86 @@
+<!-- Header for the project show page -->
+
+<% if @project.submitreview != true && @project.projectreviewed !=true %>
+  <div class="hero-unit"><center><h3>PROJECT DRAFT - PREVIEW</h3></center></div>
+<% end %>
+
+<% if @project.submitreview == true && @project.projectreviewed !=true %>
+	<div class="hero-unit"><center><h3>PROJECT IS PENDING REVIEW</h3></center></div>
+<% end %>
+
+<!-- %= link_to 'Back', projects_path, class:"btn btn-inverse" % -->
+
+<h1>
+
+
+  <div class = "followprojectbutton">
+  	<%= @project.projecttitle %>
+  </div>
+   
+
+  <!-- Project follow details -->
+  <% if current_user.try(:admin?) %>
+  <% else %>
+    <% if current_user != @project.user %>
+      <%= render 'follow_form' if signed_in? %>
+    <% end %>
+  <% end %>
+ 
+
+	<% if current_user == @project.user || current_user.try(:admin?) %>
+		<%= link_to 'Edit', edit_project_path(@project), class:"btn btn-danger" %> 
+	<% end %>
+  
+  <br />
+</h1>
+
+
+
+<h3>
+	<%= @project.projectshortdesc %>
+</h3>
+
+
+<!-- STRIPE
+<form action="" method="POST">
+  <script
+    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+    data-key="pk_test_Do1Eay6aIFQjOkHLAEoGsrAY"
+    data-amount="2000"
+    data-name="Demo Site"
+    data-description="2 widgets ($20.00)"
+    data-image="/128x128.png">
+  </script>
+</form> -->
+
+<!-- NAVIGATION OF PAGES FOR PROJECT -->
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+ 
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <!-- <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+       -->
+      <!-- Everything you want hidden at 940px or less, place within here -->
+      <!-- <div class="nav-collapse"> -->
+
+      	<ul class="nav">
+      		<li class="divider-vertical"><%= link_to 'Project Home', project_path(@project) %></li>
+          <li class="divider-vertical"><%= render 'projects/team' %></li>
+          <li class="divider-vertical"><%= render 'projects/finances' %></li>
+          <li class="divider-vertical"><%= render 'projects/blogstats' %></li>
+      		<li class="divider-vertical"><%= render 'projects/commentstats' %></li>
+      		<li class="divider-vertical"><%= render 'projects/followerstats' %></li>
+          
+      	</ul>
+        <!-- .nav, .navbar-search, .navbar-form, etc -->
+      <!-- </div> -->
+ 
+    </div>
+  </div>
+</div>

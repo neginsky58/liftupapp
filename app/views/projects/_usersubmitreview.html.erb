@@ -1,0 +1,110 @@
+<div class="staticheaderspacing">
+		<%= render 'formheader' %>
+		<div class="hero-unit">
+			<center>
+				<% if @project.projectreviewed != true %>
+				<h3>MY VIEW - PROJECT IS PENDING REVIEW</h3>
+				<% else %>
+				<h3>PROJECT REVIEWED</h3>
+				<% end %>
+			</center>
+		</div>
+</div>
+
+<table class="table table-striped table-bordered">
+	<tr>
+		<td>Project Title</td>
+		<td><%= @project.projecttitle %></td>
+	</tr>
+
+	<tr>
+		<td>Short Project Description</td>
+		<td><%= @project.projectshortdesc %></td>
+	</tr>
+
+	<tr>
+		<td>Project Location</td>
+		<td><%= @project.projectlocation.location %></td>
+	</tr>
+
+	<tr>
+		<td>Project Category</td>
+		<td><%= @project.category.name %></td>
+	</tr>
+
+	<tr>
+		<td>Project Leader</td>
+		<td><%= @project.user.name %></td>
+	</tr>
+
+	<tr>
+		<td>About Project Leader </td>
+		<td><%= @project.user.aboutuser %></td>
+	</tr>
+
+	<tr>
+		<td>Video Link</td>
+		<td><%= raw(youtube_embed(@project.youtubelink)) %></td>
+	</tr>
+
+	<tr>
+		<td>Prayer Letter</td>
+		<td><%= raw @project.projectletter %></td>
+	</tr>
+
+	<tr>
+		<td>Image</td>
+		<td><%= image_tag @project.projectimage_url(:indexview).to_s %></td>
+	</tr>
+
+	<tr>
+		<td>Team Members?</td>
+		<td>
+			<% if @project.team_members.blank?%>
+				No
+			<% else %>
+				Yes, see more details on next tab.
+			<% end %>
+		</td>
+	</tr>	
+	<tr>
+		<td>Has project been submitted for review?</td>
+		<td>
+			<% if @project.submitreview == true %>
+				Yes
+			<% else %>
+				No
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<td>Project Goal</td>
+		<td>
+			<% if @project.goal.blank?%>
+				No
+			<% else %>
+				$<%= @project.goal %>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<td>Funding Period</td>
+		<td>
+			<% if @project.funding_period.blank?%>
+				No
+			<% else %>
+				<%= @project.funding_period %> days
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<td>Reviewed?</td>
+		<td>
+			<% if @project.projectreviewed != true %>
+				No
+			<% else %>
+				Yes
+			<% end %>
+		</td>
+	</tr>
+</table>

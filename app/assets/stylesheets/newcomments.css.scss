@@ -1,0 +1,44 @@
+// Place all the styles related to the newcomments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.indentcommentcontent {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	position: relative; 
+	margin-left: 60px;
+	top: -26px;
+	font-size: 12px;
+	max-width: 670px;
+	word-wrap:break-word;
+}
+
+.replyindent {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	padding-left: 70px;
+	font-size: 11px;
+	padding-bottom: 5px;
+	/*background-color: #f9f9f9;
+	border-bottom: 1px solid #bfbfbf;*/
+	margin-bottom: 10px;
+}
+
+.twocomments {
+  /*background-color: #f9f9f9;*/
+  /*border-top: 1px solid #bfbfbf;*/
+  padding: 10px;
+  p {
+    font-size: 0.9em;
+    font-weight:lighter;
+  }
+  span {
+    font-style: italic;
+    font-size: 0.80em;
+    padding-left: 15px;
+    color: #555;
+  }
+}
+
+.indentline {
+	margin-left: 60px;
+	border-top: 1px solid #bfbfbf;
+}

@@ -1,0 +1,7 @@
+<!-- shows projects that have been approved by admin, but currently does not take into consideration ended projects -->
+<div id="projects">
+  <%= render @projects %>
+</div>
+<center>
+	<%= will_paginate @projects, :param_name => 'projects_page' %>
+</center>

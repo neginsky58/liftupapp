@@ -1,0 +1,22 @@
+<div class = "container staticheaderspacing">
+	<h3>
+		<div class = "categoryheadersidecolumn" >
+			<%= link_to "Explore Projects > ", explore_path %> <%= @category.name %>
+		</div>
+	</h3>
+	<div class = "row">
+		<div class = "span2">
+			<%= render 'pages/exploresidebar' %>
+		</div>
+
+		<div class = "span10">
+			<% if @projects.blank? %>
+				<p>No projects have been made yet for this category.</p>   
+			<% else %>
+				<%= render @projects %>
+				<%= will_paginate @projects %> 
+			<% end %>
+		</div>
+	</div>
+</div>
+

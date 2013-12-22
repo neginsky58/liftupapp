@@ -1,0 +1,6 @@
+<% if @user.newcomments.blank? %>     
+    <p>No comments have been made by <%= @user.name %>.</p>        
+	<% else %> 
+	<%= render @newcomments %>
+	<%= will_paginate @newcomments, :param_name => 'comments_page' %>
+<% end %>

@@ -1,0 +1,23 @@
+<p class="comment_header">Add Project Cost:</p>
+<span class="comment">
+	<%= form_for([@project, @project.projectcosts.build]) do |f| %>
+		<div class="field">
+		<br />
+		Expense Type/Description: 
+		<br />
+		<%= f.text_area :category, :class => "span5", :rows => "2" %>
+		<br />
+		Cost (Estimated): 
+		<br />
+		<%= f.text_area :costestimate, :class => "span5", :rows => "1" %>
+		<br />
+		Cost (Actual):
+		<br />
+		<%= f.text_area :costactual, :class => "span5", :rows => "1" %>
+		</div>
+
+		<div class="actions">
+		<%= f.submit "Add Project Cost", :class => "btn btn-header" %>
+		</div>
+	<% end %>
+</span>

@@ -1,0 +1,4 @@
+<%= form_for(current_user.project_relationships.find_by_projectuser_id(@project),
+             html: { method: :delete }, remote: true) do |f| %>
+  <%= f.submit "Unfollow", class: "btn btn-medium" %>
+<% end %>

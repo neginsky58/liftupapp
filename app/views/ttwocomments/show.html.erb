@@ -1,0 +1,23 @@
+<div class="comments"> 
+  <div class="media">
+    <a class="pull-left">
+      <img class="media-object" data-src= <%= image_tag @ttwocomment.user.image_url(:thumbindex).to_s %>
+    </a>   
+
+    <ul class = "bullets-left">
+      <li class ="linkhover"><strong><%= link_to @ttwocomment.user.name, show_user_path(@ttwocomment.user.permalink) %></strong></li>
+      <li>Posted <%= time_ago_in_words(@ttwocomment.created_at) %> ago</li>
+    </ul>
+
+    <div class="indentcommentcontent media-body">
+      <%= @ttwocomment.content %>
+      <span>
+        <% if current_user.try(:admin?) || current_user == @ttwocomment.user %>
+          <div class="pull-right">
+            <%= link_to "Destroy", @ttwocomment, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
+      </span>
+    </div>  
+  </div>
+</div>

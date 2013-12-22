@@ -1,0 +1,27 @@
+<div class = "container">
+	<br />
+	<%= link_to 'Home', root_url, class: "btn btn-header" %>
+
+	<h1>Editing project</h1>
+		<%= render 'formheader' %>
+
+		<div class="row">
+          <div class="span6">
+          	<%= link_to "Preview", team_project_path(@project), class: "btn btn-primary" %>
+          	<%= link_to "Continue", editprojectcosts_project_path(@project), class: "btn btn-success" %>
+            <!-- Add Team Members -->
+			<%= render 'team_members/form' %>
+          </div>
+
+          <div class="span6">
+            <!-- Show Added Team Members -->
+			<%= render 'team_members/teammemberlisting' %>
+          </div>
+      </div>
+
+		
+		
+</div>
+
+
+      

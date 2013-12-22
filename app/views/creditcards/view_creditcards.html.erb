@@ -1,0 +1,16 @@
+<div class = "container">
+	<h1>Your available creditcards</h1>
+	<div class="creditcard-view">
+	<% @creditcards.each do |creditcard| %>
+		<div class="control-group">
+			xxxxxxxxxxxxx<%= creditcard.cvv + '- ' + creditcard.exp_year.to_s() + '/' + creditcard.exp_month.to_s() %>			  
+		</div>
+	<% end %>
+	</div>
+	<div class="control-group">
+		<%= link_to "Add new creditcard", new_creditcards_path  %>		
+	</div>
+	<div class="control-group">
+		<%= link_to "Go to Donate Plans Page", donate_plans_path, :class => 'btn' %>
+	</div>
+</div>

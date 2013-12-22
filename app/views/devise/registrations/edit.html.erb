@@ -1,0 +1,81 @@
+<div class = "container">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: 'form-horizontal' }) do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :password, label: "New Password", autocomplete: "off" %>
+    <%= f.input :password_confirmation, label: "New Password Confirmation", autocomplete: "off" %>
+    <%= f.input :current_password %>
+    <%= f.input :aboutuser, :label => "About Me", :input_html => {:rows => 5} %>
+    
+      <div class="offset1">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= image_tag @user.image_url(:thumb).to_s %>
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= @user.image %>
+        <br /><br />
+      </div>
+    <%= f.input :image, :label => "Profile Picture" %>
+    <%= f.input :remote_image_url, :label => "Or image URL" %>
+    
+
+
+    <div class="form-actions">
+      <%= f.submit "Update", class: "btn btn-primary"%>
+      <br /><br /><br />
+      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+    </div>
+  <% end %>
+
+  
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class = "container">
+
+<br />
+<br /><br /><br />
+<h1>TEST SECTION BELOW - IGNORE </h1>
+
+<!-- STRIPE -->
+
+
+<br />
+<%= link_to image_tag("/images/blue.png", :border => 0), "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_1kboctdFFAX8DA8NRIZZ2AkoFnIRZkEw" %>
+
+
+</div>
+
+
+
+
+
+<!-- balanced payments -->
+<div class = "container">
+<br />
+My Balanced Account URI: <%= current_user.balanced_account_uri %>
+<br />
+<script type="text/javascript" src="https://js.balancedpayments.com/v1/balanced.js"></script>
+
+<script type="text/javascript">
+    balanced.init('/v1/marketplaces/TEST-MP7wTa0dysEOamCjpagJFd3M');
+</script>
+
+<%= link_to "Created Balanced Account", create_balanced_account_path, method: :post, class: "btn btn-large btn-danger" %>
+
+  <br /><br />
+  <%= render 'balanced/credit_card_form' %>
+
+</div>

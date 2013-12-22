@@ -1,0 +1,28 @@
+<span class="comment">
+	<%= form_for [@commentable, @newcomment] do |f| %>
+		<% if @newcomment.errors.any? %>
+			<div class="error_messages">
+				<h2>Please correct the following errors.</h2>
+				
+				<ul>
+					<% @newcomment.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+
+			</div>
+		<% end %>
+
+		<div class="field">
+			<%= f.text_area :content, rows: 3, :class => "span8" %>
+		</div>
+
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+
+		
+		<div class="actions">
+			<%= f.submit "Add Comment", :class => "btn btn-header" %>
+		</div>
+		
+	<% end %>
+</span>

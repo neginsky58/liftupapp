@@ -1,0 +1,84 @@
+<div class="comments">
+  <div class="media">
+
+<!-- Blog Entry HEADER -->
+
+    <a class="pull-left">
+      <img class="media-object" data-src= <%= image_tag blogupdate.user.image_url(:thumbindex).to_s %>
+    </a>
+  
+    <div id="follow_form">
+      
+      <ul class = "bullets-left">
+
+        <li><strong><%= blogupdate.user.name %></strong></li>
+        <li>Posted <%= time_ago_in_words(blogupdate.created_at) %> ago</li>
+
+        <li>
+
+          <% if signed_in? %>
+              <% if current_user.liking_blogupdate?(blogupdate) %>
+                
+                <i class="icon-heart"></i>
+                <%= blogupdate.liked_by.count %>
+
+              <% else %>
+                  
+                <% if blogupdate.liked_by.count == 0 %>
+                  <i class="icon-heart"></i>
+                <% else %>
+                  <i class="icon-heart"></i>
+                  <%= blogupdate.liked_by.count %>
+                <% end %>
+
+                <% if current_user == blogupdate.user %>
+                <% else %>
+                  <%= form_for(current_user.bloglikes.build(blogupdate_id: blogupdate.id), :html => { :style => 'display: inline;' }) do |f| %>
+                    <div class="blogupdatelike"><%= f.hidden_field :blogupdate_id %></div>
+                    <div class="linkhoverblog"><%= link_to_submit 'Like', class: "linkhoverblog" %></div>
+                  <% end %>
+                <% end %>
+
+              <% end %>
+
+          <% else %>
+
+            <div class = "linkhoverrow linkhover">
+              <% if blogupdate.liked_by.count == 0 %>
+                <i class="icon-heart"></i>
+              <% else %>
+                <i class="icon-heart"></i>
+                <strong><%= blogupdate.liked_by.count %></strong>
+              <% end %>
+              <strong><%= link_to 'Like', new_user_session_path %></strong>
+            </div>
+
+          <% end %>
+        
+        </li>
+      </ul>
+    </div>
+    
+
+<!-- Blog Entry Content -->
+
+    <div class="media-body">
+      <div class = "blogcontent">
+      <p><%= raw blogupdate.content %></p>
+      </div>
+      <span>
+      	
+      	<div class="pull-right">
+    	  	<% if current_user.try(:admin?) || current_user == blogupdate.user %>
+    	  		<%= link_to 'Edit', edit_blogupdate_path(blogupdate) %>
+    	  		<%= link_to 'Destroy', blogupdate, method: :delete, data: { confirm: 'Are you sure?' } %>
+    	  	<% end %>
+      	</div>
+
+      </span>
+    </div>
+
+  </div>
+</div>
+
+<br />

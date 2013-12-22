@@ -1,0 +1,14 @@
+<div class= <%=cp(projectlocation)%> > 
+	<span>
+		<%= link_to projectlocation.location, projectlocation %>
+
+		<% if current_user.try(:admin?) %>
+			
+				<%= link_to 'Edit', edit_projectlocation_path(projectlocation) %>
+				<%= link_to 'Destroy', projectlocation, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<br /><br />
+			
+		<% end %>
+
+	</span>
+</div>

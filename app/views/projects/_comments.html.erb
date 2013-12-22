@@ -1,0 +1,25 @@
+<!-- Comments -->
+<fieldset>
+  <legend>Project Comments</legend>
+  <section>
+
+    <!-- Add Comments -->
+
+    <% if signed_in? %>
+        <%= render 'newcomments/form' %>
+    <% else %>
+      <p class = "linkhover"><b><%= link_to 'Sign in', new_user_session_path %> to post comments.</b></p>
+    <% end %>
+
+    <br />
+    <!-- Show Comments -->
+    <div class="append"></div>
+    <% if @project.newcomments.blank? %>     
+      <p>No comments made yet for this project.</p>        
+    <% else %>        
+      <%= render @newcomments %>
+      <%= will_paginate @newcomments, :param_name => 'comments_page' %>     
+    <% end %>
+    <div class="commentend"></div>
+
+</fieldset>

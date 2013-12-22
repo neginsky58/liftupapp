@@ -1,0 +1,14 @@
+  <tr>
+    <td><%= projectcost.category %></td>
+    <td class="projectcost"><%= number_to_currency(projectcost.costestimate, :unit => "$", :precision => 0) %></td>
+    <td class="projectcost"><%= number_to_currency(projectcost.costactual, :unit => "$", :precision => 0) %></td>
+    <td class="projectcost"><%= number_to_percentage(projectcost.costestimate.to_f / @projectcosts.sum(:costestimate) * 100, :precision => 0) %></td>
+    <td class="projectcost"><%= number_to_currency(projectcost.costestimate-projectcost.costactual, :unit => "$", :precision => 0) %></td>
+    <% if current_user.try(:admin?) || current_user == @project.user %>
+      <td><%= link_to 'Edit', edit_projectcost_path(projectcost) %></td>
+      <td><%= link_to 'Destroy', projectcost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+
+  </tr>
+
+

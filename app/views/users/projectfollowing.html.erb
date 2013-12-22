@@ -1,0 +1,10 @@
+<!-- shows projects that the user follows -->
+<div class = "container">
+	<%= render 'header' %>
+	<div id="projects">
+		<%= render @projectsfollowed %>
+	</div>
+	<center>
+		<%= will_paginate @projectsfollowed, :param_name => 'projectsfollowed_page' %>
+	</center>
+</div>

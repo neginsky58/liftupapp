@@ -1,0 +1,2 @@
+$("#follow_form").html("<%= escape_javascript(render('projects/follow')) %>")
+$("#favorited_by").html('<%= @project.favorited_by.count %>')

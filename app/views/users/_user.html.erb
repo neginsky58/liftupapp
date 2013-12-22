@@ -1,0 +1,17 @@
+<div class="categoryheadersidecolumn userlistspacing">
+	<div class="media">
+	  <a class="pull-left">
+	    <img class="media-object" data-src= <%= image_tag user.image_url(:thumbindex).to_s %>
+	  </a>
+	  <div class="media-body">
+	    <h5 class="media-heading"><%= link_to user.name, show_user_path(user.permalink) %></h5>
+
+	    <div class="pull-right">
+	  		<% if current_user.try(:admin?) && !current_user?(user) %>
+				<%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %>
+			<% end %>
+	  	</div>
+
+	  </div>
+	</div>
+</div>

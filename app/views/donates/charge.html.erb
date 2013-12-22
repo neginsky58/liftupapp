@@ -1,0 +1,14 @@
+<div class="container">
+	<h1>Charged Page</h1>
+	<% if @charge.nil? %>
+	<% else %>
+		<% if @charge.paid %>
+		<h2>Thanks, you paid <strong>$<%= (@charge.amount/100).round(2) %></strong>!</h2>
+		<% end %>	
+	<% end %>
+		
+	<br />
+	
+	<%= link_to 'Donate Plans', donate_plans_path, :class => 'btn' %>
+	
+</div>

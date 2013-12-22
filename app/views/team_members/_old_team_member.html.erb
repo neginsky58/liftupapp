@@ -1,0 +1,15 @@
+<div class="comments">
+  <p><%= team_member.membername %></p>        
+  <p><%= team_member.content %></p>
+  <p><%= image_tag team_member.teamuserimage_url(:thumbindex).to_s %></p>
+
+  <span>
+  	<div class="pull-right">
+	  	<% if current_user.try(:admin?) || current_user == @project.user %>
+	  		<%= link_to 'Destroy', '#', method: :delete, data: { confirm: 'Are you sure?' } %>
+	  	<% end %>
+  	</div>
+  </span>
+</div>
+
+<br />

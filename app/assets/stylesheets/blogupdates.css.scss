@@ -1,0 +1,45 @@
+// Place all the styles related to the blogupdates controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bullets-left {
+	list-style-type: none;
+	font-size: 10px;
+}
+
+.bullets-left:before, .bullets-left:after {
+	display:table;
+	content:"";
+}
+
+.bullets-left:after {
+	clear:both;
+}
+
+.bullets-left>* {
+	float:left;
+}
+
+.bullets-left>*:not(:first-child):before {
+	padding:0 10px;
+	content:"•";
+}
+
+.linkhoverblog {
+	display: inline-block;
+	font-weight:bold;
+	a:hover {
+	    color: black;
+	    text-decoration: none;
+	}
+}
+
+.blogcontent {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	position: relative; 
+	margin-left: 60px;
+	top: -12px;
+	font-size: 14px;
+	max-width: 670px;
+	word-wrap:break-word;
+}

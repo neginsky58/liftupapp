@@ -1,0 +1,30 @@
+<div class = "container">
+	<% if current_user == @project.user %>
+		<% if @project.submitreview != true %>
+			<% if @project.projectreviewed != true %>
+				
+				<br />
+				<%= link_to 'Home', root_url, class: "btn btn-header" %>
+
+				<h1>Editing project</h1>
+					<%= render 'formheader' %>
+
+					<%= render 'form' %>
+					<div class="form-actions formindent">
+					<%= link_to "Next - Add Team Members", editteam_project_path(@project), class: "btn btn-primary btn-large", data: { confirm: 'Did you save yet?' } %>
+					</div>
+				<br /><br />
+
+			<% else %>
+				<%= render 'usersubmitreview' %>
+
+			<% end %>
+		<% else %>
+			<%= render 'usersubmitreview' %>
+		<% end %>
+	<% end %>
+	
+	<% if current_user.try(:admin?) %>
+		<%= render 'adminreviewdetails' %>
+	<% end %>
+</div>

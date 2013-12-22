@@ -1,0 +1,79 @@
+
+<% unless @project1.blank? %>
+	<% @project1.inspect %>
+<% else %>
+	<table class="table table-striped table-bordered">
+		<tr>
+			<td>Project Title</td>
+			<td><%= @project.projecttitle %></td>
+		</tr>
+	
+		<tr>
+			<td>Short Project Description</td>
+			<td><%= @project.projectshortdesc %></td>
+		</tr>
+	
+		<tr>
+			<td>Project Category</td>
+			<td><%= @project.category.name %></td>
+		</tr>
+	
+		<tr>
+			<td>Project Leader</td>
+			<td><%= @project.user.name %></td>
+		</tr>
+	
+		<tr>
+			<td>About Project Leader </td>
+			<td><%= @project.user.aboutuser %></td>
+		</tr>
+	
+		<tr>
+			<td>Video Link</td>
+			<td><%= raw(youtube_embed(@project.youtubelink)) %></td>
+		</tr>
+	
+		<tr>
+			<td>Prayer Letter</td>
+			<td><%= raw @project.projectletter %></td>
+		</tr>
+	
+		<tr>
+			<td>Image</td>
+			<td><%= image_tag @project.projectimage_url(:indexview).to_s %></td>
+		</tr>
+	
+		<tr>
+			<td>Team Members?</td>
+			<td>
+				<% if @project.team_members.blank?%>
+					No
+				<% else %>
+					Yes, see more details on next tab.
+				<% end %>
+			</td>
+		</tr>
+	
+		<tr>
+			<td>Has project been submitted for review?</td>
+			<td>
+				<% if @project.submitreview == true %>
+					Yes
+				<% else %>
+					No
+				<% end %>
+			</td>
+		</tr>
+	
+		<tr>
+			<td>Reviewed?</td>
+			<td>
+				<% if @project.projectreviewed != true %>
+					No
+				<% else %>
+					Yes
+				<% end %>
+			</td>
+		</tr>
+	</table>
+<% end %>

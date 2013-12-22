@@ -1,0 +1,17 @@
+<% if signed_in? %>
+	<span class="comment">
+		<%= form_for([@newcomment, @newcomment.ttwocomments.build]) do |f| %>
+			<div class="field">
+			<%= f.text_area :content, :class => "span5", :rows => "3" %>
+			</div>
+
+			<%= f.hidden_field :user_id, :value => current_user.id %>
+
+			<div class="actions">
+			<%= f.submit "Reply", :class => "btn btn-header" %>
+			</div>
+		<% end %>
+	</span>
+<% else %>
+	<p class = "linkhover"><b><%= link_to 'Sign in', new_user_session_path %> to post reply.</b></p>
+<% end %>

@@ -1,0 +1,44 @@
+<div class = "container">
+	<h2><center>PROJECT ADMIN PAGE</center></h2>
+	<hr>
+	<h4>Projects Pending Admin Approval</h4>
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th>Name</th>
+		      <th>Description</th>
+		      <th>Date Created</th>
+		      <th>Proposal Submitted?</th>
+		      <th>Reviewed?</th>
+		      <th></th>
+		      <th></th>
+		      <th></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		      <%= render @projects %>   
+		  </tbody>
+		</table>
+		<%= will_paginate @projects, :param_name => 'pendingapproval_page' %>
+
+	<hr>
+	<h4>Active Projects (Approved)</h4>
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th>Name</th>
+		      <th>Description</th>
+		      <th>Date Created</th>
+		      <th>Proposal Submitted?</th>
+		      <th>Reviewed?</th>
+		      <th></th>
+		      <th></th>
+		      <th></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		      <%= render @activeprojects %>
+		  </tbody>
+		</table>
+		<%= will_paginate @activeprojects, :param_name => 'activeprojects_page' %>
+</div>

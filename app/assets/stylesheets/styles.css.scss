@@ -1,0 +1,340 @@
+/*$baseFontFamily: Oxygen;
+@import url(http://fonts.googleapis.com/css?family=Oxygen);*/
+
+/*$btnPrimaryBackground: green;*/
+
+/*$navbarBackgroundHighlight: white;
+$navbarBackground: gray;*/
+
+/*$navbarBackgroundHighlight: #252525;
+$navbarBackground: #252525;
+$navbarLinkColor: gray;
+$navbarLinkColorHover: white;
+$navbarHeight: 45px;
+$navbarBrandColor: white;*/
+
+@import 'bootstrap';
+
+.formindent {
+  padding-left: 180px;
+  padding-bottom: 20px;
+}
+
+.linkhover {
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+  a {
+  }
+}
+
+.linkhoverrow {
+  display: inline-block;
+}
+
+.blogupdatelike {
+  float:right;
+  list-style-type: none
+}
+
+.userlistspacing {
+  padding-bottom: 10px;
+}
+
+textarea
+{
+   resize: none;
+}
+
+.staticheaderspacing{
+  padding-top: 20px;
+}
+
+.homepageheader{
+  font-size: 48px;
+  /*color: #f8f8f8;*/
+  color: black;
+  font-family: 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+  text-rendering: optimizelegibility;
+  font-weight: 300;
+  line-height: 40px;
+}
+
+.homepageheader2{
+  font-size: 36px;
+  color: #8c8d8e;
+  font-family: 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+  text-rendering: optimizelegibility;
+  font-weight: 300;
+  line-height: 40px;
+}
+
+
+td {
+  width:200px;
+}
+
+thead th {
+    /*background-color: #3B5998;
+    color: white;*/
+}
+
+tr.projectcosttotal {
+    background-color: #c9c9c9;
+    color: black;
+    font-weight: bold;
+}
+
+td.projectcost {
+  text-align: center;
+}
+
+th.projectcost {
+  text-align: center;
+}
+
+@import 'bootstrap-responsive';
+
+/*.footer {
+  position: relative;
+  margin-top: -120px; 
+  height: 150px;
+  clear:both;
+  padding-top:20px;
+} 
+*/
+
+/* setting footer on bottom */
+
+html, body {
+  height: 100%;
+  zoom: 90%; 
+  -moz-transform: scale(90%); 
+  -moz-transform-origin: 0 0;
+}
+
+body {
+  background-color:#e9e9e9;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:200px; 
+}
+
+.footer{
+    position: relative;
+    /*margin-top: 30px;*/
+    background-image: url(/pictures/footerBG4.jpg);
+    /*background-color: #3f4348;*/
+    a{
+      color: #f7f8e5;
+    }
+    /* color: $grayLight;
+    a{
+        color: $gray;
+    }*/
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-top: -120px; /* negative value of footer height */
+    height: 100px;
+    clear:both;
+    -moz-box-shadow: 0 0px 15px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 0px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 0px 15px rgba(0,0,0,0.5);
+}
+
+
+/* top row header adjust lighting */
+
+/*.navbar-inner{
+    @include box-shadow(none !important);
+    border: 0;
+
+}*/
+
+
+/* home page view photo */
+
+#backgroundphoto {
+  background-image: url(/pictures/bgheader6.jpg);
+  height: 400px;
+  -moz-box-shadow: 0 0px 15px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 0px 15px rgba(0,0,0,0.5);
+}
+
+/* Required for jQuery Masonry and index view of projects */
+
+.box {
+    margin: 5px;
+    padding: 5px;
+    font-size: 11px;
+    line-height: 1.4em;
+    float: left;
+    /*display:inline-block;*/
+/*    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;*/
+    box-shadow: 1px 1px 10px #444;
+    width: 214px;
+    height: 380px;
+    text-align: left;
+    background-color:#ffffff;
+}
+
+.box img {
+    diplay: block;
+    width: 100%;
+    /*height: 45%;*/
+/*    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;*/
+}
+
+.projectprofileimage {
+    width: 200px;
+    padding: 5px;
+    box-shadow: 1px 1px 5px #444; 
+    background-color:#ffffff;
+}
+
+
+.description {
+    margin: 10px 0 5px;
+}
+
+/* middle navigation bar */
+
+.middlebar {
+  padding: 0px 0;
+  text-align: left;
+  background-color: #f5f5f5;
+  border-top: 1px solid #fff;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: -20px;
+}
+
+
+/* following followed */
+
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $grayLighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+ 
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}
+
+
+
+/* comment area on project page */
+
+
+.comment_header {
+  margin-top: 20px; 
+  font-weight: bold;
+  font-size: 0.9em;  
+}
+.comments {
+  border-bottom: 1px solid #bfbfbf;
+  background-color: #f9f9f9;
+  padding: 10px;
+  p {
+    font-size: 0.9em;
+    font-weight:lighter;
+  }
+  span {
+    font-style: italic;
+    font-size: 0.80em;
+    padding-left: 15px;
+    color: #555;
+  }
+}
+
+
+/*navbar for the category explore projects */
+
+.categorylist {
+  /*background-color: #f9f9f9;*/
+  color: #555;
+  font-size: 15px;
+  font-family: 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+  a:hover {
+    color: black ;
+    text-decoration: none;
+    /*background-color: #000000 ;*/
+  }
+  a {
+    color: #8f8d8d;
+    padding-left: 5px;
+    display: block;
+    padding-top: 3px;
+    padding-bottom: 4px;
+  }
+  :hover {
+    background: #e4fafc;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+}
+
+.afterheaderspacing {
+  padding-left:0px;
+}
+
+.categoryheadersidecolumn {
+  a:hover {
+    color: black ;
+    text-decoration: none;
+  }
+  a {
+    color: #5a5a5a;
+  }
+}
+
+.current {
+  background: #e4fafc;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-top: 3px;
+  padding-bottom: 4px;
+  color: #555;
+  font-size: 15px;
+  font-family: 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+  a:hover {
+    color: black ;
+    text-decoration: none;
+    /*background-color: #000000 ;*/
+  }
+  a {
+    color: black;
+  }
+}

@@ -1,0 +1,68 @@
+<fieldset>
+	<legend>Profile</legend>
+
+	<div class="projectprofileimage">
+		<%= image_tag @project.projectimage_url(:indexview).to_s %>
+	</div>
+	<br />
+
+	<p>
+		<div class="linkhover">
+		<b>Created by:</b> 
+		<%= link_to @project.user.name, show_user_path(@project.user.permalink) %>
+		</div>
+	</p>
+
+	<p>
+	  <b>About:</b> 
+	  <%= @project.user.aboutuser %>
+	</p>
+	<p>
+		<b>Category:</b> 	
+		<%= @project.category.name %>
+	</p>
+	<p>
+		<b>Location:</b> 	
+		<%= @project.projectlocation.location %>
+	</p>
+</fieldset>
+
+<br /><br />
+
+<fieldset>
+	<legend>Share Project</legend>
+	<!-- AddThis Button BEGIN -->
+	<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+	<a class="addthis_button_facebook"></a>
+	<a class="addthis_button_twitter"></a>
+	<a class="addthis_button_email"></a>
+	<a class="addthis_button_google_plusone_share"></a>
+	</div>
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
+	<!-- AddThis Button END -->
+</fieldset>
+
+<br /><br />
+
+<fieldset>
+	<legend>Funding Status</legend>
+	<p>Project Goal: <b>$<%= @project.goal %></b></p>
+	<p>Funding period: <b><%= @project.funding_period %> days</b></p>
+	<p>Current amount funded: <b>$<%= @sum_of_funded %></b></p>
+	<p><b><%= @count_of_donated.inspect %> BACKERS</b></p>
+	
+	<% @donators.each do |donator| %>
+		<p><%= donator.name %></p>
+		<p><%= image_tag donator.image_url(:regular).to_s, :style=>"width:90px;height:97px;" %></p>
+	<% end %>
+	
+</fieldset>
+
+<% if current_user.try(:id) != @project.user_id %>
+<fieldset>	
+	<br><br>
+	<a class="btn" href="/donate_plans/project/<%=@project.id %>">Donate Plan</a>
+</fieldset>
+<% end %>
+
+

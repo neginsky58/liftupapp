@@ -1,0 +1,31 @@
+
+<%= form_for(@creditcard, :url => save_creditcards_path, :method => :post ) do |f| %>
+  <span class="validate-errors alert alert-error"></span>
+  
+  <div class="control-group">
+  	<%= f.label :name, :class => 'control-label' %>
+  	<%= f.text_field :name, :class => 'controls' %>
+  </div>
+  <div class="control-group">
+  	<%= label_tag 'creditcard_number', nil, :class => 'control-label'%>
+  
+  	<%= text_field_tag 'creditcard_number', nil, :class => 'controls', :size=>"20", 'data-stripe' => 'number' %>
+  </div>  
+  <div class="control-group">
+  	<%= f.label :cvv, 'CVV' %>
+  	<%= f.text_field :cvv, :size=>'4', 'data-stripe'=>'cvc'%>  	
+  </div>
+  <div class="control-group">
+  	<%= f.label :exp_month, 'Expiration month' %>
+  	<%= f.text_field :exp_month, :placeholder => 'MM', :size=>'2', 'data-stripe'=>'exp-month' %>  	
+  </div>
+
+  <div class="control-group">
+  	<%= f.label :exp_year, 'Expiration year' %>
+  	<%= f.text_field :exp_year, :placeholder => 'YYYY', :size=>'4', 'data-stripe'=>'exp-year'  %>  	
+  </div>
+
+  <button type="submit">Add creditcard</button>
+  
+  
+<% end %>

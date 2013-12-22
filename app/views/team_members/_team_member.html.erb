@@ -1,0 +1,18 @@
+<div class="media">
+  <a class="pull-left">
+    <img class="media-object" data-src= <%= image_tag team_member.teamuserimage_url(:thumb).to_s %>
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading"><%= team_member.membername %></h4>
+    <%= team_member.content %>
+
+    <div class="pull-right">
+	  	<% if current_user.try(:admin?) || current_user == @project.user %>
+	  		<%= link_to 'Edit', edit_team_member_path(team_member) %>
+	  		<%= link_to 'Destroy', team_member, method: :delete, data: { confirm: 'Are you sure?' } %>
+	  	<% end %>
+  	</div>
+
+  </div>
+</div>
+<br />
