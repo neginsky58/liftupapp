@@ -207,7 +207,13 @@ class ProjectsController < ApplicationController
       end
     end
   end
-
+  def following
+    @title = "Followers"
+    @project = Project.find(params[:id])
+    @users = @project.favorited_by.newest.page(params[:followers_page]).per_page(5)
+    @team_members = @project.team_members.page(params[:page]).per_page(10)
+    render 'show_follow'
+  end
   def submitreview
     @project = Project.find(params[:id])
     @project.update_attributes(submitreview: true)
@@ -245,14 +251,5 @@ class ProjectsController < ApplicationController
       end
     end
   end
-
-  def following
-    @title = "Followers"
-    @project = Project.find(params[:id])
-    @users = @project.favorited_by.newest.page(params[:followers_page]).per_page(5)
-    @team_members = @project.team_members.page(params[:page]).per_page(10)
-    render 'show_follow'
-  end
-
 end
 
