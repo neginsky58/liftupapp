@@ -43,6 +43,8 @@ class ProjectsController < ApplicationController
       
       
       # Written by Frank
+      # Written by Yevgeny
+
       @sum_of_funded = Donates.sum(:amount, :conditions => ['project_id = ?', params[:id]])
       @count_of_donated = Donates.count(:donator_id, :distinct => true, :conditions => ['project_id = ?', params[:id]])      
       
